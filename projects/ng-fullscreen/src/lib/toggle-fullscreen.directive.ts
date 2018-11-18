@@ -1,4 +1,5 @@
 import { Directive, HostListener } from '@angular/core';
+import { FullscreenService } from './fullscreen.service';
 import * as screenfull from 'screenfull';
 
 @Directive({

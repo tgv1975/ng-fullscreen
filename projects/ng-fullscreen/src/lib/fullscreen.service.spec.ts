@@ -9,4 +9,13 @@ describe('FullscreenService', () => {
         const service: FullscreenService = TestBed.get(FullscreenService);
         expect(service).toBeTruthy();
     });
+
+    it('should get fullscreen lib as previously set', () => {
+        const service: FullscreenService = TestBed.get(FullscreenService);
+        const mockLib = { dummy: 'dummy' };
+
+        service.fullscreenLib = mockLib;
+
+        expect(service.fullscreenLib).toEqual(mockLib);
+    });
 });
