@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-fullscreen": [
+        "dist/ng-fullscreen"
+      ],
+      "ng-fullscreen/*": [
+        "dist/ng-fullscreen/*"
+      ]
+    }
   }
 }
