@@ -15,13 +15,13 @@ export class ToggleFullscreenDirective {
         return this._fullscreenLib;
     }
 
-    constructor() {
-        this.fullscreenLib = screenfull;
-    }
-
     @HostListener('click') onClick() {
-        if (this._fullscreenLib.enabled) {
+        if (this._fullscreenLib.isEnabled) {
             this._fullscreenLib.toggle();
         }
+    }
+
+    constructor() {
+        this.fullscreenLib = screenfull;
     }
 }

@@ -13,6 +13,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "aot": true,
                         "outputPath": "dist/fullscreen-angular",
                         "index": "src/index.html",
                         "main": "src/main.ts",
@@ -49,6 +50,10 @@
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
                                 }
                             ]
                         }
@@ -58,7 +63,7 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
                         "browserTarget": "fullscreen-angular:build",
-                        "port": 4201
+                        "port": 4300
                     },
                     "configurations": {
                         "production": {
@@ -142,6 +147,11 @@
                     "options": {
                         "tsConfig": "projects/ng-fullscreen/tsconfig.lib.json",
                         "project": "projects/ng-fullscreen/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/ng-fullscreen/tsconfig.lib.prod.json"
+                        }
                     }
                 },
                 "test": {

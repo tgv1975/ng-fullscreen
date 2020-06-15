@@ -37,14 +37,14 @@ describe('ToggleFullscreenDirective', () => {
 
     it('should have the fullscreen lib enabled', () => {
         const directive = new ToggleFullscreenDirective();
-        expect(directive.fullscreenLib.enabled).toBe(true);
+        expect(directive.fullscreenLib.isEnabled).toBe(true);
     });
 
     it('should call fullscreen toggle when onClick() called and lib enabled', () => {
         const directive = new ToggleFullscreenDirective();
-        // This is a trick. "enabled" is a property in fullscreenLib, but a mock method here,
+        // This is a trick. "isEnabled" is a property in fullscreenLib, but a mock method here,
         // therefore truthy.
-        const screenfull = jasmine.createSpyObj('screenfull', ['enabled', 'toggle']);
+        const screenfull = jasmine.createSpyObj('screenfull', ['isEnabled', 'toggle']);
 
         directive.fullscreenLib = screenfull;
 
@@ -55,7 +55,7 @@ describe('ToggleFullscreenDirective', () => {
 
     it('should not call fullscreen toggle when onClick() called and lib disabled', () => {
         const directive = new ToggleFullscreenDirective();
-        // This is a trick. "enabled" is a property in fullscreenLib, but a mock method above,
+        // This is a trick. "isEnabled" is a property in fullscreenLib, but a mock method above,
         // therefore not declaring it makes it falsey.
         const screenfull = jasmine.createSpyObj('screenfull', ['toggle']);
 

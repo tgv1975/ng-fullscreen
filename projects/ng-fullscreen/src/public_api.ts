@@ -3,3 +3,4 @@
  */
 export * from './lib/fullscreen.service';
 export * from './lib/fullscreen.module';
+export * from './lib/toggle-fullscreen.directive';
