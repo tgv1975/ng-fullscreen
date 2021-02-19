@@ -1,9 +1,9 @@
 {
     "name": "ng-fullscreen",
-    "version": "0.0.3",
+    "version": "0.3.0",
     "peerDependencies": {
         "@angular/common": "^7.2.1",
         "@angular/core": "^7.2.1",
-        "screenfull": "^4.0.0"
+        "screenfull": "^5.1.0"
     }
 }

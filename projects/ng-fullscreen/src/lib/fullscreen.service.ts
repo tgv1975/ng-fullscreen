@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import * as screenfull from 'screenfull';
+import * as screenfull_ from 'screenfull';
+
+const screenfull = screenfull_ as screenfull_.Screenfull;
 
 @Injectable({
     providedIn: 'root'
 })
 export class FullscreenService {
-
-    private _fullscreenLib;
-    set fullscreenLib(lib) {
-        this._fullscreenLib = lib;
-    }
-    get fullscreenLib() {
-        return this._fullscreenLib;
-    }
-
-    private _isFullscreen: BehaviorSubject<boolean> = new BehaviorSubject(false);
-    fullscreen$: Observable<boolean> = this._isFullscreen.asObservable();
+    private fullscreen: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    fullscreen$: Observable<boolean> = this.fullscreen.asObservable();
 
     constructor() {
-        this.fullscreenLib = screenfull;
-        this._fullscreenLib.onchange(() => this._isFullscreen.next(this._fullscreenLib.isFullscreen));
+        screenfull.onchange(() => this.fullscreen.next(screenfull.isFullscreen));
+    }
+
+    async setFullScreen(value: boolean) {
+        value
+            ? await screenfull.request()
+            : await screenfull.exit();
     }
 }

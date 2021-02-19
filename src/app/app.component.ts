@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FullscreenService } from 'ng-fullscreen';
+import { FullscreenService } from './../../projects/ng-fullscreen/src/lib/fullscreen.service';
 
 @Component({
     selector: 'app-root',
@@ -15,6 +15,9 @@ export class AppComponent implements OnDestroy {
 
     constructor(private fss: FullscreenService) {
         fss.fullscreen$
+            .subscribe(is => console.log(is));
+
+        fss.fullscreen$
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((isFullscreen) => {
                 isFullscreen
@@ -26,5 +29,9 @@ export class AppComponent implements OnDestroy {
     ngOnDestroy() {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
+    }
+
+    setFullScreen(value: boolean) {
+        this.fss.setFullScreen(value);
     }
 }
