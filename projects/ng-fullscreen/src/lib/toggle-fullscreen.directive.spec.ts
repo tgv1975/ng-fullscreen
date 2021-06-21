@@ -1,6 +1,6 @@
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { ToggleFullscreenDirective } from './toggle-fullscreen.directive';
 
 @Component(
@@ -15,7 +15,7 @@ describe('ToggleFullscreenDirective', () => {
     let fixture: ComponentFixture<HostComponent>;
     let debugEl: DebugElement;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [
                 ToggleFullscreenDirective,
