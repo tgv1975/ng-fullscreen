@@ -18,6 +18,10 @@ export class FullscreenService {
     }
 
     async setFullScreen(value: boolean) {
+        if (!screenfull.isEnabled) {
+            return;
+        }
+
         value
             ? await screenfull.request()
             : await screenfull.exit();
