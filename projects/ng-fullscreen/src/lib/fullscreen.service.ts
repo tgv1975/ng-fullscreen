@@ -12,10 +12,16 @@ export class FullscreenService {
     fullscreen$: Observable<boolean> = this.fullscreen.asObservable();
 
     constructor() {
-        screenfull.onchange(() => this.fullscreen.next(screenfull.isFullscreen));
+        if (screenfull.isEnabled) {
+            screenfull.onchange(() => this.fullscreen.next(screenfull.isFullscreen));
+        }
     }
 
     async setFullScreen(value: boolean) {
+        if (!screenfull.isEnabled) {
+            return;
+        }
+
         value
             ? await screenfull.request()
             : await screenfull.exit();

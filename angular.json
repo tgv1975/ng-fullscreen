@@ -42,6 +42,7 @@
                                 }
                             ],
                             "optimization": true,
+                            "aot": true,
                             "outputHashing": "all",
                             "sourceMap": false,
                             "namedChunks": false,
@@ -97,18 +98,6 @@
                             "src/assets"
                         ]
                     }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
                 }
             }
         },
@@ -127,15 +116,6 @@
                         "production": {
                             "devServerTarget": "fullscreen-angular:serve:production"
                         }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": "e2e/tsconfig.e2e.json",
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
                     }
                 }
             }
@@ -164,18 +144,6 @@
                         "main": "projects/ng-fullscreen/src/test.ts",
                         "tsConfig": "projects/ng-fullscreen/tsconfig.spec.json",
                         "karmaConfig": "projects/ng-fullscreen/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/ng-fullscreen/tsconfig.lib.json",
-                            "projects/ng-fullscreen/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
                     }
                 }
             }

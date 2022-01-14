@@ -11,7 +11,7 @@ import { FullscreenService } from './../../projects/ng-fullscreen/src/lib/fullsc
 export class AppComponent implements OnDestroy {
     title = 'fullscreen-angular';
     buttonText: string;
-    ngUnsubscribe: Subject<any> = new Subject<any>();
+    ngUnsubscribe: Subject<void> = new Subject<void>();
 
     constructor(private fss: FullscreenService) {
         fss.fullscreen$
