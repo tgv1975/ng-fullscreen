@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import * as screenfull_ from 'screenfull';
-
-const screenfull = screenfull_ as screenfull_.Screenfull;
+import screenfull from 'screenfull';
 
 @Injectable({
     providedIn: 'root'
